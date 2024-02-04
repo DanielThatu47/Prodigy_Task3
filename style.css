@@ -1,0 +1,170 @@
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    position: relative;
+    overflow: hidden;
+}
+
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 36px;
+    color: #333;
+}
+
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: #fff;
+    color: #333;
+    position: relative;
+}
+
+
+.cell:hover {
+    background-color: #e0e0e0;
+}
+
+
+.winner {
+    background-color: #8aff8a;
+    animation: scaleUp 0.5s ease-in-out;
+}
+
+
+.line {
+    position: absolute;
+    background-color: #ff0000;
+    z-index: 1;
+    pointer-events: none;
+    height: 7px;
+    width: 0;
+    transition: width 1s;
+    transform-origin: 0 70%;
+}
+
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+
+
+    50% {
+        transform: scale(1.1);
+    }
+
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+#message {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/* Celebration Animation */
+.celebration {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    animation: celebrationAnimation 0.5s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+
+@keyframes celebrationAnimation {
+    0% {
+        transform: translateY(0);
+    }
+
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+
+/* Confetti Animation */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #e74c3c;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    animation: confettiAnimation 1s ease-out infinite alternate;
+    z-index: 1;
+}
+
+
+@keyframes confettiAnimation {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+
+    100% {
+        transform: translateY(1000px) rotate(180deg);
+    }
+}
+
+
+#reset-button {
+    margin-top: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+
+#reset-button:hover {
+    background-color: #2980b9;
+}
+
+
+#message {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: transparent;
+    /* Ensure background is initially transparent */
+    padding: 20px;
+    /* Add padding for visibility */
+}
